@@ -27,3 +27,13 @@ Thumbs.db
 *.log
 *.tmp
 *~
+
+# archives
+*.zip
+
+# Windows ADS leftovers (WSL copies)
+*:Zone.Identifier
+
+# extra safety
+*.ro
+**/a.out
