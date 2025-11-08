@@ -37,3 +37,13 @@ Thumbs.db
 # extra safety
 *.ro
 **/a.out
+
+# archives
+*.zip
+
+# Windows ADS (כשמעבירים קבצים מ-Windows)
+*:Zone.Identifier
+
+# common build artifacts
+**/a.out
+*.ro
