@@ -1,0 +1,141 @@
+This is the initial output (run the file (geve it premission with the command below) as is from moodle) :
+
+chmod +x deep_thought
+chmod +x deep_thought
+moshe@DESKTOP-P2SK7CS:~/labs/lab4/task2$ chmod +x deep_thought
+./deep_thought
+This program has been hacked,  Nyah, Nyah, Nyah Nyah, Nyah!!!
+This program has been hacked,  Nyah, Nyah, Nyah Nyah, Nyah!!!
+This program has been hacked,  Nyah, Nyah, Nyah Nyah, Nyah!!!
+This program has been hacked,  Nyah, Nyah, Nyah Nyah, Nyah!!!
+This program has been hacked,  Nyah, Nyah, Nyah Nyah, Nyah!!!
+This program has been hacked,  Nyah, Nyah, Nyah Nyah, Nyah!!!
+This program has been hacked,  Nyah, Nyah, Nyah Nyah, Nyah!!!
+This program has been hacked,  Nyah, Nyah, Nyah Nyah, Nyah!!!
+This program has been hacked,  Nyah, Nyah, Nyah Nyah, Nyah!!!
+This program has been hacked,  Nyah, Nyah, Nyah Nyah, Nyah!!!
+
+
+Thats shows that the program deep_thought run BUT does not does waht she suppose to. thats means that she controlled by the wrong func (malicious func)
+
+המשימה בחלק 2: לזהות מה היה אמורל קרות ולתקן את קובץ ELF 
+ככה שירוץ כמו שצריך 
+
+ראשית, צריך למצוא את פונקציית START 
+ואת הערך התקין של ENTRY POINT
+
+לכן נריץ את הפקודות הבאות
+
+readelf -s deep_thought | grep start
+תחפש את הפונקציה בשם _start ותרשום את הערך שמופיע תחת Value — זו כתובת ה־virtual address שאליה צריך להפנות את ה־entry point.
+
+
+readelf -h deep_thought
+על מנת לבדוק מה הערך הנוכחי שלו 
+
+השוואה בין מה שכתוב כרגע לבין כתובת הפונקציה _start תגלה אם זה באמת מופנה למקום הלא נכון.
+
+מתוך הפלטים מצאנו כי:
+
+61: 08048350     0 FUNC    GLOBAL DEFAULT   13 _start
+ זוהי הפונקציה שצריכה לרוץ בתחילת ההרצה 
+ הכתובת שלה: 
+0x08048350
+
+וכתובת ENTRY POINT :
+Entry point address:               0x8048464
+
+
+כעת המטרה שלנו:
+🔧 לערוך את קובץ deep_thought כך שה־Entry Point ישתנה מ־0x8048464 ל־0x08048350.
+
+🛠️ שלבים לתיקון בעזרת hexeditplus
+
+ ./hexeditplus 
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+1
+Please enter file name: deep_thought
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+2
+Please enter unit size (1, 2, or 4): 4
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+3
+Please enter <location(hexadecimal)> <length(decimal)>
+18 1
+Loaded 1 units into memory
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+5
+Please enter <address(hex)> <length(decimal)>
+0 1
+Decimal
+134513764
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+7
+Please enter <location(hex)> and <val(hex)>
+0 8048350
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+6
+Please enter <source-address(hex)> <target-location(hex)> <length(decimal)>
+0 18 1
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+^C
+moshe@DESKTOP-P2SK7CS:~/labs/lab4/task2$ ./deep_thought 
+This program now working correctly, you win
+
+

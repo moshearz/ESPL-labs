@@ -1,0 +1,29 @@
+# build outputs
+build/
+bin/
+obj/
+out/
+*.o
+*.out
+*.exe
+*.a
+*.so
+*.dylib
+*.dll
+*.pdb
+*.dSYM/
+
+# editors / IDE
+.vscode/
+.idea/
+*.user
+*.suo
+
+# OS clutter
+.DS_Store
+Thumbs.db
+
+# logs / temp
+*.log
+*.tmp
+*~

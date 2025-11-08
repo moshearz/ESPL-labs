@@ -1,0 +1,28 @@
+Select operation from the following menu: 
+1) Load signatures
+2) Print signatures
+3) Detect viruses
+4) Fix file
+5) Quit
+Option: Within bounds
+Please enter signature file name: 
+Select operation from the following menu: 
+1) Load signatures
+2) Print signatures
+3) Detect viruses
+4) Fix file
+5) Quit
+Option: Within bounds
+Starting byte location: 263
+Virus name: Doom
+Size of virus signature: 19
+
+
+Select operation from the following menu: 
+1) Load signatures
+2) Print signatures
+3) Detect viruses
+4) Fix file
+5) Quit
+Option: Within bounds
+Exiting program...

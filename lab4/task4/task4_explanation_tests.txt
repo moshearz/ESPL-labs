@@ -1,0 +1,180 @@
+ראשית נריץ:
+
+./ntsc aabbaba123baacca
+String contains 3 digits, right???
+moshe@DESKTOP-P2SK7CS:~/labs/lab4/task4$ ./ntsc 1112111
+String contains 7 digits, right???
+moshe@DESKTOP-P2SK7CS:~/labs/lab4/task4$ ./ntsc 0123456789
+String contains 8 digits, right???
+moshe@DESKTOP-P2SK7CS:~/labs/lab4/task4$ 
+
+ונראה שהקובץ פגום:
+"0123456789" מכילה 10 ספרות, לא 8.
+
+לכן count_digits סופרת בצורה שגויה — כנראה מפספסת חלק מהתווים או קופצת על חלק מהם.
+
+
+
+כעת כתבנו קובץ שמכיל את הפונקציה שסופרת ספרות נכון 
+
+קובץ TASK4.c - With func count_digits
+
+./task1
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+1
+Please enter file name: task4
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+2
+Please enter unit size (1, 2, or 4): 1
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+3
+Please enter <location(hexadecimal)> <length(decimal)>
+12D 58
+Loaded 58 units into memory
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+1
+Please enter file name: ntsc
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+6
+Please enter <source-address(hex)> <target-location(hex)> <length(decimal)>
+0 464 58
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+8s
+
+בדיקה חלקית
+---------------
+
+בדיקה סופית: 
+
+ ./task1
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+1
+Please enter file name: task4
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+2
+Please enter unit size (1, 2, or 4): 1
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+3
+Please enter <location(hexadecimal)> <length(decimal)>
+117d 93
+Loaded 93 units into memory
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+1
+Please enter file name: ntsc
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+2
+Please enter unit size (1, 2, or 4): 1
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+6
+Please enter <source-address(hex)> <target-location(hex)> <length(decimal)>
+0 47d 93
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+8
+moshe@DESKTOP-P2SK7CS:~/labs/lab4/task4$ chmod +x ntsc
+./ntsc 0123456789
+String contains 10 digits, right???
+moshe@DESKTOP-P2SK7CS:~/labs/lab4/task4$ 

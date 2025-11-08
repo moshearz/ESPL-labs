@@ -1,0 +1,21 @@
+QUESTION 1: Where is the entry point specified, and what is its value?
+
+The entry point of the program is inside the "ELF Header" in a field which called: e_entry
+
+command to run: readelf -h abc | grep "Entry point"
+
+output:
+Entry point address:               0x80483b0
+
+
+
+QUESTION 2: How many sections are there in "abc"?
+
+The number of sections (ELF file is divided to sections, where each section has a clear "job": code, data, tables, strings, symbols, etc..) in a file is also found in the ELF Header in a field called: e_shnum
+
+command to run: readelf -h abc | grep "Number of section headers"
+
+output:
+readelf -h abc | grep "Number of section headers"
+  Number of section headers:         29
+

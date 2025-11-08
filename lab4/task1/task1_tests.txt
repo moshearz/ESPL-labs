@@ -1,0 +1,402 @@
+TESTS:
+
+
+TESTS 1a:
+
+ ./hexeditplus 
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+1
+Please enter file name: abc
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+2
+Please enter unit size (1, 2, or 4): 1
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+3
+Please enter <location(hexadecimal)> <length(decimal)>
+110 10
+Loaded 10 units into memory
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+
+
+TESTS 1b:
+
+ ./hexeditplus 
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+4
+Display flag now on, decimal representation
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+4
+Display flag now off, hexadecimal representation
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+
+
+
+TESTS 1c:
+
+ ./hexeditplus 
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+1
+Please enter file name: abc 
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+2
+Please enter unit size (1, 2, or 4): 2
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+3
+Please enter <location(hexadecimal)> <length(decimal)>
+12F 10
+Loaded 10 units into memory
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+5
+Please enter <address(hex)> <length(decimal)>
+0 5
+Decimal
+256
+0
+12032
+26988
+12130
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+4
+Display flag now on, decimal representation
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+5
+Please enter <address(hex)> <length(decimal)>
+0 5
+Hexadecimal
+0x100
+0
+0x2f00
+0x696c
+0x2f62
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+
+
+QUESTIONS 1C:
+
+Q1: Note that, depending on the chosen unit size, the printed hexadecimal values may differ in order when compared with the output of hexedit. Why is that?
+
+ANS1: This happens because the fumc memory_display() presents values by unit_size and interrapt them as integers in little endians, where hexedit presents the bytes ony by one without interrapt them as full units.
+
+Q2: what is the entry point of your own hexeditplus program? Verify your answer using readelf -h 
+
+ANS2:
+readelf -h hexeditplus | grep "Entry point"
+  Entry point address:               0x1160
+
+
+
+TESTS 1d:
+
+נבדוק את פונקציית השמירה שלנו
+
+נריץ את הפקודה : hexedit abc
+
+שהיא פותחת עבורנו את הקובץ הבינארי abc
+בתצוגת ASCII / HEX 
+ועכשיו נוכל לראות ולערוך את התוכן הבינארי שלו ישירות
+
+כעת:
+נלחץ את האות: g
+נקליד כתובת למשל: 40 ונלחץ: enter
+זה יעביר אותנו ישירות בקובץ ל: offset 40x0
+ונראה:
+משמאל תצוגת offset
+באמצע : hex(בייטים)
+מימין: ASCII
+
+נשמור למשל את 
+
+0x40:
+00000040   34 80 04 08  00 01 00 00  00 01 00 00  05 00 00 00  04 00 00 00  03 00 00 00  34 01 00 00  34 81 04 08  4.......................4...4...
+
+0x60:
+00000060   34 81 04 08  13 00 00 00  13 00 00 00  04 00 00 00  01 00 00 00  01 00 00 00  00 00 00 00  00 80 04 08  4...............................
+
+בדיקה:
+ ./hexeditplus 
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+1
+Please enter file name: abc
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+2
+Please enter unit size (1, 2, or 4): 1
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+3
+Please enter <location(hexadecimal)> <length(decimal)>
+60 8
+Loaded 8 units into memory
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+6     
+Please enter <source-address(hex)> <target-location(hex)> <length(decimal)>
+0 70 8 
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+
+וזה בעצם ישנה את הקובץ 
+0x70:
+לפני:
+14 9F 04 08 EC 05 00 00
+אחרי:
+13 00 00 00 13 00 00 00
+
+
+
+TESTS 1e:
+
+./hexeditplus 
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+0
+Debug flag now on
+Debug: unit_size=0 file_name='' mem_count=0
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+1
+Please enter file name: abc
+Debug: file name set to 'abc' 
+Debug: unit_size=0 file_name='abc' mem_count=0
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+2
+Please enter unit size (1, 2, or 4): 4
+Debug: set size to 4
+Debug: unit_size=4 file_name='abc' mem_count=0
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+3
+Please enter <location(hexadecimal)> <length(decimal)>
+40 1
+Debug: file_name='abc', location=0X40, length=1
+Loaded 1 units into memory
+Debug: unit_size=4 file_name='abc' mem_count=1
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+7
+Please enter <location(hex)> and <val(hex)>
+0 804808a
+Debug: location=0x0 val=0x804808a
+Debug: unit_size=4 file_name='abc' mem_count=1
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+6
+Please enter <source-address(hex)> <target-location(hex)> <length(decimal)>
+0 40 1
+Debug: wrote 4 bytes (1 units) from mem_buf+0x0 to 'abc' at offset 0x40
+Debug: unit_size=4 file_name='abc' mem_count=1
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
+5
+Please enter <address(hex)> <length(decimal)>
+0 1
+Decimal
+134512778
+Debug: unit_size=4 file_name='abc' mem_count=1
+0) Toggle Debug Mode
+1) Set File Name
+2) Set Unit Size
+3) Load Into Memory
+4) Toggle Display Mode
+5) Memory Display
+6) Save Into File
+7) Memory Modify
+8) Quit
